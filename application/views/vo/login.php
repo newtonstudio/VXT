@@ -44,37 +44,4 @@ function removeBlank(){
 }
 
 
-if($("#login-form").length>0) {
-			$('#login-form').on('submit', function(e) { //use on if jQuery 1.7+
-		        e.preventDefault();  //prevent form from submitting		        
-		        
-				var formData = $("#login-form :input").serializeArray();				
-				var obj = {};
-				if(formData.length > 0) {
-					for(var i=0; i < formData.length; i++) {
-						//console.log(formData);						
-						obj[formData[i].name] = formData[i].value;						
-					}
-				}				
-
-				$.ajax({
-				  type: "POST",
-				  url: "/"+langu+"/api/login",
-				  data: JSON.stringify(obj),
-				  success: function(json){
-				  		if(json.status == "OK") {
-				  			setCookie("token", json.result.token, 30);	
-				  			location.href="/en/vo/profile";			  		
-				  		} else {
-				  			alert(json.result);
-				  		}
-
-				  },
-				  dataType: "json",
-				  contentType : "application/json"
-				});
-
-
-		    });
-		};
 </script>

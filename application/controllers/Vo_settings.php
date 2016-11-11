@@ -101,31 +101,8 @@ class Vo_settings extends CI_Controller {
           $this->data['results'] = $result;
 
           $this->load->view('vo/header', $this->data);
-
-          if($result['variable'] == "USD2SILVER" || $result['variable'] == "SILVER2USD") {
-
-              $struc = json_decode($result['value'], true);
-              $this->data['struc'] = $struc;
-
-              $this->load->view($this->data['view_foldername']."/usd2silver", $this->data);
-          } else if ($result['variable'] == "SHIPPING_FEE") {
-             $struc = json_decode($result['value'], true);
-              $this->data['struc'] = $struc;
-
-              $this->load->view($this->data['view_foldername']."/shipping_fee", $this->data);
-          } else if ($result['variable'] == "SILVER2SILVER") {
-             
-              $this->data['struc'] = $result['value'];              
-              $this->load->view($this->data['view_foldername']."/silver2silver", $this->data);
-          } else {
-              $this->load->view($this->data['view_foldername']."/add", $this->data);
-          }
-
-
-
-
-           
           
+          $this->load->view($this->data['view_foldername']."/add", $this->data);
           
           
           $this->load->view('vo/footer', $this->data);
@@ -138,63 +115,7 @@ class Vo_settings extends CI_Controller {
           $mode = isset($_POST['mode'])?$_POST['mode']:'';
           $id = isset($_POST['id'])?$_POST['id']:'';
           $variable = $this->input->post("variable", true);
-          $value = $this->input->post("value", true);
-
-          if($variable == "USD2SILVER" || $variable == "SILVER2USD") {
-
-            $method = $this->input->post("method", true);
-            $premium = $this->input->post("premium", true);
-            $price = $this->input->post("price", true);
-
-            $json = json_encode(array(
-              'METHOD' => $method,
-              'PRICE' => $price,
-              'PREMIUM' => $premium,
-            ));
-
-            $value = $json;
-
-          } else if ($variable == "SHIPPING_FEE") {
-
-            $method = $this->input->post("method", true);
-            $value = $this->input->post("value", true);
-            $min = $this->input->post("min", true);
-
-            $json = json_encode(array(
-              'METHOD' => $method,
-              'VALUE' => $value,
-              'MIN' => $min,
-            ));
-
-            $value = $json;
-
-          } else if ($variable == "SILVER2SILVER") {
-
-            $from = $this->input->post("from", true);
-            $to = $this->input->post("to", true);
-            $method = $this->input->post("method", true);
-            $value = $this->input->post("value", true);
-            $min = $this->input->post("min", true);
-
-            $tmp = [];
-            foreach($from as $k=>$v) {
-
-              $tmp[] = array(
-                'FROM' => $v,
-                'TO' => addslashes($to[$k]),
-                'METHOD' => addslashes($method[$k]),
-                'VALUE' => addslashes($value[$k]),
-                'MIN' => addslashes($min[$k]),
-              );
-
-            }
-
-            $value = json_encode($tmp);
-
-
-
-          }
-                    
+          $value = $this->input->post("value", true);                            
           
           $array = array(
 		  	     'variable'	=> $variable,			  
