@@ -1,0 +1,17 @@
+/* Add here all your css styles (customizations) */
+
+.header-v6 .navbar-brand{
+	max-height: 90px;
+	height: 90px;
+}
+
+.header-v6{
+	border-bottom: 1px solid #ddd;
+}
+
+.footer-v6 .footer .contacts li{
+	font-size: 12px;
+}
+.profile .table a{
+	color: #ffffff;
+}
