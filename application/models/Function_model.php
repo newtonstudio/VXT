@@ -136,7 +136,7 @@ class Function_model extends CI_Model{
 			'web_footer'		=> $this->Settings_model->get_web_footer(),
 			'web_meta'			=> $this->Settings_model->get_web_meta(),
 			'web_mobile'		=> $this->Settings_model->get_web_mobile(),
-			'web_address'		=> $this->getArticle("ADDRESS"),
+			'web_address'		=> $this->Settings_model->get_web_address(),
 			'web_email'			=> $this->Settings_model->get_web_email(),
 			'backend_title'	    => $this->Settings_model->get_backend_title(),
             'privacy'           => $this->Settings_model->get_settings(10),

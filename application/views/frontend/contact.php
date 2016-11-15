@@ -97,19 +97,9 @@
 					<!-- Business Hours -->
 					<div class="headline"><h2>Business Hours</h2></div>
 					<ul class="list-unstyled margin-bottom-30">
-						<li><strong>Monday-Friday:</strong> 8am to 5pm</li>
-						<li><strong>Saturday:</strong> Closed</li>
-						<li><strong>Sunday:</strong> Closed</li>
+						<li><strong>Monday-Friday:</strong> 9:00 ~ 18:00 (GMT+8)</li>						
 					</ul>
-
-					<!-- Why we are? -->
-					<div class="headline"><h2>Why we are?</h2></div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit ut metus a commodo. Pellentesque congue tellus sed enim sollicitudin, id blandit mauris eleifend..</p>
-					<ul class="list-unstyled">
-						<li><i class="fa fa-check color-green"></i> Odio dignissimos ducimus</li>
-						<li><i class="fa fa-check color-green"></i> Blanditiis praesentium volup</li>
-						<li><i class="fa fa-check color-green"></i> Eos et accusamus</li>
-					</ul>
+					
 				</div><!--/col-md-3-->
 			</div><!--/row-->
 
@@ -120,17 +110,17 @@
 		<script>
 
 function initMap() {
-  var myLatLng = {lat: -25.363, lng: 131.044};
+  var myLatLng = {lat: <?=$latlng[0]?>, lng: <?=$latlng[1]?>};
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: 15,
     center: myLatLng
   });
 
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
-    title: 'Hello World!'
+    title: 'We are here'
   });
 }
 

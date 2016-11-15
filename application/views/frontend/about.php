@@ -11,34 +11,45 @@
 		<!--=== End Breadcrumbs ===-->
 
 		<!--=== Content Part ===-->
-		<div class="container content">
-			<div class="title-box-v2">
-				<h2>About <span class="color-green">Us</span></h2>
-				<p>VXT is a professional provider of Projected Capacitive Touch Panel and Display solutions, we have well-experienced team members and strong technical background.<br>
-				With a wide range, good quality, reasonable prices and durable designs, our products are extensively used in Industrial Control, Medical Care and Ruggedized Devices.<br>
-				Our products are widely recognized and trusted by users and can meet continuously changing market demands.<br>
-				You are welcome to contact us for future business relationships and mutual success!</p>
+		<div class="container content about">
+			<div class="profile-body margin-bottom-20">
+				<div class="headline">
+				<h2>ABOUT <span class="color-green">VXT</span></h2>
+				</div>
+				<p><?=$content?></p>
 			</div>
 
 			<!-- About Sldier -->
 			<div class="shadow-wrapper margin-bottom-50">
 				<div class="carousel slide carousel-v1 box-shadow shadow-effect-2" id="myCarousel">
 					<ol class="carousel-indicators">
-						<li class="rounded-x active" data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li class="rounded-x" data-target="#myCarousel" data-slide-to="1"></li>
-						<li class="rounded-x" data-target="#myCarousel" data-slide-to="2"></li>
+						<?php
+						if(!empty($banner)) {
+							$i=0;
+							foreach($banner as $v) {
+						?>
+						<li class="rounded-x <?=$i==0?'active':''?>" data-target="#myCarousel" data-slide-to="<?=$i?>" <?=$i==0?'class="active"':''?>></li>
+						<?php	
+								$i++;	
+							}
+						}
+						?>						
 					</ol>
 
 					<div class="carousel-inner">
-						<div class="item active">
-							<img class="img-responsive" src="<?=base_url('assets/VXT/img/about_banner_01.jpg')?>" alt="">
+						<?php
+						if(!empty($banner)) {
+							$i=0;
+							foreach($banner as $v) {
+						?>
+						<div class="item <?=$i==0?'active':''?>">
+							<img class="img-responsive" src="<?=$v['img']?>" alt="">
 						</div>
-						<div class="item">
-							<img class="img-responsive" src="<?=base_url('assets/VXT/assets/img/sliders/4.jpg')?>" alt="">
-						</div>
-						<div class="item">
-							<img class="img-responsive" src="<?=base_url('assets/VXT/img/about_banner_03.jpg')?>" alt="">
-						</div>
+						<?php	
+								$i++;	
+							}
+						}
+						?>							
 					</div>
 
 					<div class="carousel-arrow">

@@ -24,6 +24,7 @@ class Welcome extends CI_Controller {
             $this->load->model('Function_model');
             $this->load->model('Banner_model');
             $this->load->model('Article_model');
+            $this->load->model('Products_model');
             
             $this->data['init'] = $this->Function_model->page_init();
 
@@ -39,6 +40,11 @@ class Welcome extends CI_Controller {
             	  ));                               	 
 
             }
+
+            $this->data['productList'] = $this->Products_model->get_where(array(
+            	'is_deleted' => 0,
+            	'display' => 1,
+            ));
            
 
             $this->data['current_page'] = "index";
@@ -87,16 +93,28 @@ class Welcome extends CI_Controller {
 		$article = $this->Article_model->getOne(array(
 			'article_variable' => "ABOUT",
 		));
-		$this->data['title'] = strtoupper($this->data['init']['lang']['About']);
-		$this->data['content'] = $article['content_'.$this->data['init']['langu']];
+		
+		$this->data['content'] = nl2br($article['content_'.$this->data['init']['langu']]);
+
+		$this->data['banner'] = json_decode($article['struct_'.$this->data['init']['langu']],true);
 
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/about", $this->data);
         $this->load->view('frontend/footer', $this->data);
 	}
 
-	public function products()
+	public function product($product_id, $product_title)
 	{
+		$productData = $this->Products_model->getOne(array(
+			'product_id' => $product_id,
+			'is_deleted' => 0,
+			'display' => 1,
+		));
+
+		if(empty($productData)) {
+			show_error("This product has been removed from system");
+		}
+		$this->data['productData'] = $productData;
 				
 
 		$this->load->view('frontend/header', $this->data);
@@ -121,11 +139,7 @@ class Welcome extends CI_Controller {
 	public function support()
 	{
 		
-		$article = $this->Article_model->getOne(array(
-			'article_variable' => "SUPPORT",
-		));
-		$this->data['title'] = strtoupper($this->data['init']['lang']['About']);
-		$this->data['content'] = $article['content_'.$this->data['init']['langu']];
+		
 
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/support", $this->data);
@@ -135,11 +149,11 @@ class Welcome extends CI_Controller {
 	public function contact()
 	{
 		
-		$article = $this->Article_model->getOne(array(
-			'article_variable' => "CONTACT",
+		$latlng = $this->Settings_model->getOne(array(
+			'variable' => "latlng",
 		));
-		$this->data['title'] = strtoupper($this->data['init']['lang']['About']);
-		$this->data['content'] = $article['content_'.$this->data['init']['langu']];
+
+		$this->data['latlng'] = explode(",", $latlng['value']);
 
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/contact", $this->data);

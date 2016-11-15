@@ -20,15 +20,9 @@ class MY_Controller extends CI_Controller {
             $this->load->model('Function_model');
             $this->load->model('User_model');
             $this->load->model('User_login_token_model');
-
-            $this->load->model('Application_model');
-            $this->load->model('User_usd_account_model');
-            $this->load->model('User_silver_account_model');
-            $this->load->model('User_account_model');
+            
             $this->load->model('Products_model');
-            $this->load->model('Delivery_order_model');
-            $this->load->model('Delivery_order_products_model');
-            $this->load->model('Transfer_order_model');
+            
 
             $this->data['init'] = $this->Function_model->page_init();
             //This section is all about user logged in information

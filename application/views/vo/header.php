@@ -156,13 +156,17 @@ if($islogin) {
                     <li class="dropdown <?=($this->Function_model->get_current_page())=='banner'?'active':''?>">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="">
                             <i class="glyphicon glyphicon-file"></i>
-                            <span><?=$init['lang']['Banner']?></span>
+                            <span>Pages</span>
                             <b class="caret"></b>
                         </a>
 
                         <ul class="dropdown-menu">
                             <li><a href="<?=base_url($init['langu'].'/vo/banner/add')?>"><?=$init['lang']['Add New']?> <?=$init['lang']['Banner']?></a></li>
-                            <li><a href="<?=base_url($init['langu'].'/vo/banner/list')?>"><?=$init['lang']['Banner']?> <?=$init['lang']['Management']?></a></li>                           
+                            <li><a href="<?=base_url($init['langu'].'/vo/banner/list')?>"><?=$init['lang']['Banner']?> <?=$init['lang']['Management']?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?=base_url($init['langu'].'/vo/article/add')?>"><?=$init['lang']['Add New']?> <?=$init['lang']['Article']?></a></li> 
+                            <li><a href="<?=base_url($init['langu'].'/vo/article/list')?>"><?=$init['lang']['Article']?> <?=$init['lang']['Management']?></a></li>
+
                         </ul>
                     </li>
 
@@ -191,8 +195,7 @@ if($islogin) {
                         <ul class="dropdown-menu">                            
                             <li><a href="<?=base_url($init['langu'].'/vo/settings/list')?>"><?=$init['lang']['Settings']?></a></li> 
 
-                            <li><a href="<?=base_url($init['langu'].'/vo/article/add')?>"><?=$init['lang']['Add New']?> <?=$init['lang']['Article']?></a></li> 
-                            <li><a href="<?=base_url($init['langu'].'/vo/article/list')?>"><?=$init['lang']['Article']?> <?=$init['lang']['Management']?></a></li>                           
+                                                       
                         </ul>
                     </li>
 

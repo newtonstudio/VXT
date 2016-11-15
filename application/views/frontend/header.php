@@ -3,13 +3,12 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<title>VXT</title>
+	<title><?=$init['web_data']['web_title']?></title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<?=$init['web_data']['web_meta']?>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -109,12 +108,18 @@
 										Products
 									</a>
 									<ul class="dropdown-menu">
+										<?php
+										if(!empty($productList)) {
+											foreach($productList as $v) {
+										?>
 										<li>
-											<a href="javascript:void(0);">Capacitive Touch Panel</a>
+											<a href="<?=base_url($init['langu'].'/product/'.$v['product_id'].'/'.urlencode($v['title']))?>"><?=$v['title']?></a>
 										</li>
-										<li>
-											<a href="javascript:void(0);">Industrial LCD Panel</a>
-										</li>
+										<?php		
+											}
+										}
+										?>
+																		
 									</ul>
 								</li>
 								<!-- End Blog -->

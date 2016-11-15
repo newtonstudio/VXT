@@ -112,7 +112,7 @@ $route['^(en|zh|cn)/vo/article/Submit'] = "vo_article/Submit";
 $route['^(en|zh|cn)/vo/article/delete/(:num)'] = "vo_article/delete/$2";
 
 $route['^(en|zh|cn)/about'] = "welcome/about";
-$route['^(en|zh|cn)/products'] = "welcome/products";
+$route['^(en|zh|cn)/product/(:num)/(:any)'] = "welcome/product/$2/$3";
 $route['^(en|zh|cn)/solutions'] = "welcome/solutions";
 $route['^(en|zh|cn)/support'] = "welcome/support";
 $route['^(en|zh|cn)/contact'] = "welcome/contact";
