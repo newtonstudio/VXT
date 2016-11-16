@@ -25,6 +25,9 @@ class Welcome extends CI_Controller {
             $this->load->model('Banner_model');
             $this->load->model('Article_model');
             $this->load->model('Products_model');
+            $this->load->model('Solutions_model');
+            $this->load->model('QA_model');
+            $this->load->model('Drivers_model');
             
             $this->data['init'] = $this->Function_model->page_init();
 
@@ -125,11 +128,9 @@ class Welcome extends CI_Controller {
 	public function solutions()
 	{
 		
-		$article = $this->Article_model->getOne(array(
-			'article_variable' => "SOLUTIONS",
+		$this->data['solutions'] = $this->Solutions_model->get_where(array(
+			'is_deleted' => 0,
 		));
-		$this->data['title'] = strtoupper($this->data['init']['lang']['About']);
-		$this->data['content'] = $article['content_'.$this->data['init']['langu']];
 
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/solutions", $this->data);
@@ -139,6 +140,12 @@ class Welcome extends CI_Controller {
 	public function support()
 	{
 		
+		$this->data['qa'] = $this->QA_model->get_where(array(
+			'is_deleted' => 0,
+		),'priority','ASC');
+		$this->data['drivers'] = $this->Drivers_model->get_where(array(
+			'is_deleted' => 0,
+		),'priority','ASC');
 		
 
 		$this->load->view('frontend/header', $this->data);

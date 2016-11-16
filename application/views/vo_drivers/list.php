@@ -75,10 +75,8 @@
                     ?>
                        <table class="table table-striped table-bordered">
                            <tr>
-                           	   <th width="15%"><?=$init['lang']['Created Date']?> / <?=$init['lang']['Modified Date']?></th>	                               
+                           	   <th width="15%"><?=$init['lang']['Created Date']?> / <?=$init['lang']['Modified Date']?></th>	
                                <th>Title</th>
-                               
-                               <th>Show / Hide</th>
                                <th width="10%"></th>
                            </tr>
                         <?php
@@ -86,10 +84,7 @@
                         ?>
                            <tr>
                            		<td><?=$v['created_date']?><br/><?=$v['modified_date']?></td>
-                              
                                 <td><?=$v['title']?></td>
-                                
-                                <td><?=$v['display']?'Show':'Hide'?></td>
                                 <td>
                                     <a href="<?=  base_url($init['langu']."/vo/".$pathname."/edit/".$v[$id_column])?>" class="btn btn-info" title="<?=$init['lang']['Edit']?>"><i class="glyphicon glyphicon-edit"></i></a>
                                     

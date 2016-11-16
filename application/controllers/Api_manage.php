@@ -15,7 +15,8 @@ class Api_manage extends CI_Controller {
             $this->load->model('User_login_token_model');
             $this->load->model('Products_model');           
             $this->load->model('Function_model');            
-            $this->load->model('Settings_model');            
+            $this->load->model('Settings_model');  
+            $this->load->model('Contact_model');               
 
             $this->data['starttime'] = microtime(true);
             
@@ -249,6 +250,95 @@ class Api_manage extends CI_Controller {
         fclose($ifp); 
     
         return $output_file; 
+    }
+
+    public function contact() {
+
+        header('Content-Type: application/json; charset=utf-8');
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+    
+        try
+        {
+
+            if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
+            $_POST = array_merge($_POST, (array) json_decode(trim(file_get_contents('php://input')), true));
+
+                $company = $this->input->post("company", true);
+                $name = $this->input->post("name", true);
+                $country = $this->input->post("country", true);
+                $email = $this->input->post("email", true);
+                $message = $this->input->post("message", true);
+
+                if(empty($company)) {
+                    throw new Exception("Company name cannot be blank");
+                    
+                }
+
+                if(empty($name)) {
+                    throw new Exception("Name cannot be blank");
+                    
+                }
+
+                if(empty($email)) {
+                    throw new Exception("Email cannot be blank");
+                    
+                }
+
+                if(empty($message)) {
+                    throw new Exception("Message cannot be blank");
+                    
+                }
+
+                $c_id = $this->Contact_model->insert(array(
+                    'company' => $company,
+                    'name' => $name,
+                    'country' => $country,
+                    'email' => $email,
+                    'message' => $message,
+                    'created_date' => date("Y-m-d H:i:s"), 
+                ));
+
+                $msg = "";
+                $msg .= "Hi, <br/><br/>";
+                $msg .= 'You have received this email because someone has submit a contact message from VXT website as below:<br/><br/>';                                                
+                $msg .= "<br/><br/>";
+
+                $msg .= "Company: ".$company."<br/>";
+                $msg .= "Name: ".$name."<br/>";
+                $msg .= "Country: ".$country."<br/>";
+                $msg .= "Email: ".$email."<br/>";
+                $msg .= "Message: ".$message."<br/>";
+                $msg .= "<br/><br/>";
+                $msg .= base_url($this->data['init']['langu'].'/vo/login');
+                $msg .= "<br/><br/>";
+                $msg .= "VXT<br/>";
+
+
+                $m = new SimpleEmailServiceMessage();
+                $m->addTo($this->data['init']['web_data']['web_email']);
+                $m->addBCC('jason.tian@i-tea.com.tw');
+                $m->setFrom('service@i-tea.com.tw');
+                $m->setSubject("New contact message from VXT website: ".$name);
+                $m->setMessageFromString('', $msg);
+
+                $ses = new SimpleEmailService('AKIAJQAJ6COMC7DR4R7A', 'OwMUINMK2IVwhkb7WbDRgb3bPhF0w2hSJ9E22y9E');
+                $sentdone = $ses->sendEmail($m);
+
+                $this->json_output(array(
+                    'c_id' => $c_id,
+                    'success_text' => "Your message has been sent successfully, we will get back to you soon!",
+                ));                        
+
+            } else {
+                throw new Exception('No data input');   
+            }   
+        } catch (Exception $e) {
+            $this->json_output_error($e->getMessage());   
+        } 
+
+
     }
 
 

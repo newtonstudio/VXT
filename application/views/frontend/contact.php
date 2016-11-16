@@ -32,13 +32,13 @@
 					<div class="headline"><h2>Contact Form</h2></div>
 					<p>Feel free to contact us for product information or techincal support.</p>
 
-					<form action="assets/php/sky-forms-pro/demo-contacts-process.php" method="post" id="sky-form3" class="sky-form contact-style">
+					<form method="post" id="contact-form" class="sky-form contact-style">
 						<fieldset class="no-padding">
 							<label>Company <span class="color-red">*</span></label>
 							<div class="row sky-space-20">
 								<div class="col-md-7 col-md-offset-0">
 									<div>
-										<input type="text" name="email" id="email" class="form-control">
+										<input type="text" name="company" id="company" class="form-control">
 									</div>
 								</div>
 							</div>
@@ -54,7 +54,7 @@
 							<div class="row sky-space-20">
 								<div class="col-md-7 col-md-offset-0">
 									<div>
-										<input type="text" name="email" id="email" class="form-control">
+										<input type="text" name="country" id="country" class="form-control">
 									</div>
 								</div>
 							</div>
@@ -62,7 +62,7 @@
 							<div class="row sky-space-20">
 								<div class="col-md-7 col-md-offset-0">
 									<div>
-										<input type="text" name="email" id="email" class="form-control">
+										<input type="email" name="email" id="email" class="form-control">
 									</div>
 								</div>
 							</div>
@@ -75,6 +75,7 @@
 								</div>
 							</div>
 							<p><button type="submit" class="btn-u">Send Message</button></p>
+							<div id="loading" style="display:none">Please wait...</div>
 						</fieldset>
 
 						<!-- <div class="message">
@@ -127,4 +128,5 @@ function initMap() {
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1GjjhYxFHIL2uvY3FYDBNY93vawHvA1s&signed_in=true&callback=initMap"></script>
+    
   </body>

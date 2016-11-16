@@ -167,6 +167,17 @@ if($islogin) {
                             <li><a href="<?=base_url($init['langu'].'/vo/article/add')?>"><?=$init['lang']['Add New']?> <?=$init['lang']['Article']?></a></li> 
                             <li><a href="<?=base_url($init['langu'].'/vo/article/list')?>"><?=$init['lang']['Article']?> <?=$init['lang']['Management']?></a></li>
 
+                            <li class="divider"></li>
+                            <li><a href="<?=base_url($init['langu'].'/vo/drivers/add')?>"><?=$init['lang']['Add New']?> Drivers</a></li> 
+                            <li><a href="<?=base_url($init['langu'].'/vo/drivers/list')?>">Drivers <?=$init['lang']['Management']?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?=base_url($init['langu'].'/vo/QA/add')?>"><?=$init['lang']['Add New']?> QA</a></li> 
+                            <li><a href="<?=base_url($init['langu'].'/vo/QA/list')?>">QA <?=$init['lang']['Management']?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?=base_url($init['langu'].'/vo/solutions/add')?>"><?=$init['lang']['Add New']?> Solutions</a></li> 
+                            <li><a href="<?=base_url($init['langu'].'/vo/solutions/list')?>">Solutions <?=$init['lang']['Management']?></a></li>
+
+
                         </ul>
                     </li>
 
@@ -183,7 +194,21 @@ if($islogin) {
                             <li><a href="<?=base_url($init['langu'].'/vo/products/add')?>"><?=$init['lang']['Add New']?> <?=$init['lang']['Products']?></a></li>
                             <li><a href="<?=base_url($init['langu'].'/vo/products/list')?>"><?=$init['lang']['Products']?> <?=$init['lang']['Management']?></a></li>                           
                         </ul>
-                    </li>                    
+                    </li>  
+
+                    <li class="dropdown <?=($this->Function_model->get_current_page())=='contact'?'active':''?>">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            <span>Contact</span>
+                            <b class="caret"></b>
+                        </a>
+
+                        <ul class="dropdown-menu">                            
+                            <li><a href="<?=base_url($init['langu'].'/vo/contact/list')?>">Contact</a></li> 
+
+                                                       
+                        </ul>
+                    </li>                  
 
                     <li class="dropdown <?=($this->Function_model->get_current_page())=='settings'?'active':''?>">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="">

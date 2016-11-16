@@ -111,6 +111,43 @@ $route['^(en|zh|cn)/vo/article/edit/(:num)'] = "vo_article/edit/$2";
 $route['^(en|zh|cn)/vo/article/Submit'] = "vo_article/Submit"; 
 $route['^(en|zh|cn)/vo/article/delete/(:num)'] = "vo_article/delete/$2";
 
+//VO Contact
+$route['^(en|zh|cn)/vo/contact/list'] = "vo_contact/index";
+$route['^(en|zh|cn)/vo/contact/list/(:any)/(:any)'] = "vo_contact/index/$2/$3";
+$route['^(en|zh|cn)/vo/contact/list/(:any)/(:any)/(:num)'] = "vo_contact/index/$2/$3/$4";
+$route['^(en|zh|cn)/vo/contact/add'] = "vo_contact/add"; 
+$route['^(en|zh|cn)/vo/contact/edit/(:num)'] = "vo_contact/edit/$2";
+$route['^(en|zh|cn)/vo/contact/Submit'] = "vo_contact/Submit"; 
+$route['^(en|zh|cn)/vo/contact/delete/(:num)'] = "vo_contact/delete/$2";
+
+//VO QA
+$route['^(en|zh|cn)/vo/QA/list'] = "vo_qa/index";
+$route['^(en|zh|cn)/vo/QA/list/(:any)/(:any)'] = "vo_qa/index/$2/$3";
+$route['^(en|zh|cn)/vo/QA/list/(:any)/(:any)/(:num)'] = "vo_qa/index/$2/$3/$4";
+$route['^(en|zh|cn)/vo/QA/add'] = "vo_qa/add"; 
+$route['^(en|zh|cn)/vo/QA/edit/(:num)'] = "vo_qa/edit/$2";
+$route['^(en|zh|cn)/vo/QA/Submit'] = "vo_qa/Submit"; 
+$route['^(en|zh|cn)/vo/QA/delete/(:num)'] = "vo_qa/delete/$2";
+
+//VO Drivers
+$route['^(en|zh|cn)/vo/drivers/list'] = "vo_drivers/index";
+$route['^(en|zh|cn)/vo/drivers/list/(:any)/(:any)'] = "vo_drivers/index/$2/$3";
+$route['^(en|zh|cn)/vo/drivers/list/(:any)/(:any)/(:num)'] = "vo_drivers/index/$2/$3/$4";
+$route['^(en|zh|cn)/vo/drivers/add'] = "vo_drivers/add"; 
+$route['^(en|zh|cn)/vo/drivers/edit/(:num)'] = "vo_drivers/edit/$2";
+$route['^(en|zh|cn)/vo/drivers/Submit'] = "vo_drivers/Submit"; 
+$route['^(en|zh|cn)/vo/drivers/delete/(:num)'] = "vo_drivers/delete/$2";
+
+//VO Solutions
+$route['^(en|zh|cn)/vo/solutions/list'] = "vo_solutions/index";
+$route['^(en|zh|cn)/vo/solutions/list/(:any)/(:any)'] = "vo_solutions/index/$2/$3";
+$route['^(en|zh|cn)/vo/solutions/list/(:any)/(:any)/(:num)'] = "vo_solutions/index/$2/$3/$4";
+$route['^(en|zh|cn)/vo/solutions/add'] = "vo_solutions/add"; 
+$route['^(en|zh|cn)/vo/solutions/edit/(:num)'] = "vo_solutions/edit/$2";
+$route['^(en|zh|cn)/vo/solutions/Submit'] = "vo_solutions/Submit"; 
+$route['^(en|zh|cn)/vo/solutions/delete/(:num)'] = "vo_solutions/delete/$2";
+
+
 $route['^(en|zh|cn)/about'] = "welcome/about";
 $route['^(en|zh|cn)/product/(:num)/(:any)'] = "welcome/product/$2/$3";
 $route['^(en|zh|cn)/solutions'] = "welcome/solutions";
@@ -129,6 +166,7 @@ $route['^(en|zh|cn)/api/forgot_pass'] = "api_manage/forgot_pass";
 $route['^(en|zh|cn)/api/reset_pass'] = "api_manage/reset_pass";
 $route['^(en|zh|cn)/api/getUserdata/(:any)'] = "api_manage/getUserdata/$2";
 $route['^(en|zh|cn)/api/getUserdata/(:any)/(:num)'] = "api_manage/getUserdata/$2/$3";
+$route['^(en|zh|cn)/api/contact'] = "api_manage/contact";
 
 
 $route['default_controller'] = 'welcome';
