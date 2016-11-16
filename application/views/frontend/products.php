@@ -106,7 +106,17 @@
 								}
 								?>
 							</div>
-							<button class="btn-u" type="button"><?=$productData['button']?></button>
+							<?php
+							if(!empty($productData['button_link'])) {
+							?>
+							<a class="btn-u" href="<?=$productData['button_link']?>"><?=$productData['button']?></a>
+							<?php
+							} else {
+							?>
+							<a class="btn-u" href="<?=base_url($init['langu'].'/product_detail/'.$productData['product_id'].'/'.urlencode($productData['title']))?>"><?=$productData['button']?></a>
+							<?php
+							}
+							?>
 					</div>
 				</div>
 				<!-- End Profile Content -->

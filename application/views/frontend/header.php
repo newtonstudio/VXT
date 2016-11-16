@@ -69,7 +69,7 @@
 						<!-- ENd Navbar Brand -->
 
 						<!-- Header Inner Right -->
-						<div class="header-inner-right">
+						<!--<div class="header-inner-right">
 							<ul class="menu-icons-list">
 								<li class="menu-icons">
 									<i class="menu-icons-style search search-close search-btn fa fa-search"></i>
@@ -78,7 +78,7 @@
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div>-->
 						<!-- End Header Inner Right -->
 					</div>
 

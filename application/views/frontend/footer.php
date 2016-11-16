@@ -28,9 +28,19 @@
 						<div class="col-md-3 sm-margin-bottom-40">
 							<div class="heading-footer"><h2>Useful Links</h2></div>
 							<ul class="list-unstyled footer-link-list">
-								<li><a href="<?=base_url($init['langu'].'/about')?>">About Us</a></li>
-								<li><a href="<?=base_url($init['langu'].'/products')?>">Products</a></li>
+								<li><a href="<?=base_url($init['langu'].'/about')?>">About Us</a></li>								
 								<li><a href="<?=base_url($init['langu'].'/solutions')?>">Solutions</a></li>
+								<?php
+										if(!empty($productList)) {
+											foreach($productList as $v) {
+										?>
+										<li>
+											<a href="<?=base_url($init['langu'].'/product/'.$v['product_id'].'/'.urlencode($v['title']))?>"><?=$v['title']?></a>
+										</li>
+										<?php		
+											}
+										}
+										?>
 								<li><a href="<?=base_url($init['langu'].'/support')?>">Support</a></li>
 								<li><a href="<?=base_url($init['langu'].'/contact')?>">Contact</a></li>
 							</ul>

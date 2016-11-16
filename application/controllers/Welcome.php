@@ -28,6 +28,8 @@ class Welcome extends CI_Controller {
             $this->load->model('Solutions_model');
             $this->load->model('QA_model');
             $this->load->model('Drivers_model');
+            $this->load->model('Industrial_detail_model');
+            $this->load->model('Capacitive_detail_model');
             
             $this->data['init'] = $this->Function_model->page_init();
 
@@ -123,6 +125,48 @@ class Welcome extends CI_Controller {
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/products", $this->data);
         $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function product_detail($product_id, $product_title)
+	{
+		$productData = $this->Products_model->getOne(array(
+			'product_id' => $product_id,
+			'is_deleted' => 0,
+			'display' => 1,
+		));
+
+		if(empty($productData)) {
+			show_error("This product has been removed from system");
+		}
+		$this->data['productData'] = $productData;
+
+		$this->load->view('frontend/header', $this->data);
+
+		if($productData['category'] == 'capacitive') {
+
+			$this->data['details'] = $this->Capacitive_detail_model->get_where(array(
+				'product_id' => $productData['product_id'],
+				'is_deleted' => 0,
+			), 'priority', 'ASC');
+
+			$this->load->view("frontend/capacitive", $this->data);
+
+		} else {
+
+			$this->data['details'] = $this->Industrial_detail_model->get_where(array(
+				'product_id' => $productData['product_id'],
+				'is_deleted' => 0,
+			), 'priority', 'ASC');
+
+			$this->load->view("frontend/industrial", $this->data);
+
+		}
+
+		$this->load->view('frontend/footer', $this->data);		
+
+		
+        
+        
 	}
 
 	public function solutions()
