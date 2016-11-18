@@ -1,120 +1,80 @@
-
-
-		<!--=== Slider ===-->
-		<div class="ms-layers-template">
-			<!-- masterslider -->
-			<div class="master-slider ms-skin-black-2 round-skin" id="masterslider">
-				<?php
-				if(!empty($bannerList)) {
-					foreach($bannerList as $v) {
-				?>
-				<div class="ms-slide" style="z-index: 10">
-					<img src="assets/plugins/master-slider/masterslider/style/blank.gif" data-src="<?=$v['background_url']?>" alt="">
-					<div class="ms-layer ms-promo-info color-light" style="left:15px; top:160px"
-					data-effect="bottom(40)"
-					data-duration="2000"
-					data-delay="700"
-					data-ease="easeOutExpo"
-					><?=$v['title_en']?></div>
-
-					<div class="ms-layer ms-promo-info ms-promo-info-in color-light" style="left:15px; top:210px"
-					data-effect="bottom(40)"
-					data-duration="2000"
-					data-delay="1000"
-					data-ease="easeOutExpo"
-					><?=$v['slogan_en']?></div>
-
-					<div class="ms-layer ms-promo-sub color-light" style="left:15px; top:310px"
-					data-effect="bottom(40)"
-					data-duration="2000"
-					data-delay="1300"
-					data-ease="easeOutExpo"
-					></div>
-
-					<?php
-					if(!empty($v['button_link'])) {
-					?>
-					<a class="ms-layer btn-u" style="left:15px; top:390px" href="<?=$v['button_link']?>"
-					data-effect="bottom(40)"
-					data-duration="2000"
-					data-delay="1300"
-					data-ease="easeOutExpo"
-					><?=$v['button']?></a>
-					<?php
-					}
-					?>
-
-				</div>
-				<?php
-					}
-				}
-			?>
-
-
-			</div>
-			<!-- end of masterslider -->
-		</div>
-		<!--=== End Slider ===-->
-
-		<!--=== Business ===-->
-		<div class="container content-sm">
-			<div class="row">
-				<div class="col-sm-4 md-margin-bottom-40">
-					<div class="thumbnails-v1">
-						<?php
-						if(!empty($CORE1_IMG)) {
-						?>
-						<div class="thumbnail-img">
-							<img class="img-responsive" src="<?=$CORE1_IMG?>" alt="">
-						</div>
-						<?php
-						}	
-						?>
-						<div class="caption">
-							<h3><a href="#"><?=$CORE1?></a></h3>
-							<p><?=$CORE1_DESC?></p>
-							<p><a class="read-more" href="base_url($init['langu'].'/about')">See More</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 md-margin-bottom-40">
-					<div class="thumbnails-v1">
-						<?php
-						if(!empty($CORE2_IMG)) {
-						?>
-						<div class="thumbnail-img">
-							<img class="img-responsive" src="<?=$CORE2_IMG?>" alt="">
-						</div>
-						<?php
-						}	
-						?>
-						<div class="caption">
-							<h3><a href="#"><?=$CORE2?></a></h3>
-							<p><?=$CORE2_DESC?></p>
-							<p><a class="read-more" href="base_url($init['langu'].'/about')">See More</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="thumbnails-v1">
-						<?php
-						if(!empty($CORE3_IMG)) {
-						?>
-						<div class="thumbnail-img">
-							<img class="img-responsive" src="<?=$CORE3_IMG?>" alt="">
-						</div>
-						<?php
-						}	
-						?>
-						<div class="caption">
-							<h3><a href="#"><?=$CORE3?></a></h3>
-							<p><?=$CORE3_DESC?></p>
-							<p><a class="read-more" href="base_url($init['langu'].'/about')">See More</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--=== End Business ===-->
-
-		
+<div class="banner">
+            <a href=""><img src="<?=base_url('assets/santini/img/index_banner01.jpg')?>" class="rwd" alt=""></a>
+        </div>
+        <section>
+            <div class="i-custom">
+                <h2>CUSTOM FOR YOU</h2>
+                <h3>HOW IT WORKS</h3>
+                <div class="row">
+                    <div class="grid grid-1-2-4">
+                        <div class="grid-item">
+                            <h4>1</h4>
+                            <img src="<?=base_url('assets/santini/img/icustom_01.svg')?>" alt="CHOOSE">
+                            <h5>CHOOSE</h5>
+                            <p>Your Suit Type</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>2</h4>
+                            <img src="<?=base_url('assets/santini/img/icustom_02.svg')?>" alt="CUSTOMIZED">
+                            <h5>CUSTOMIZED</h5>
+                            <p>Your Suit Size</p>
+                        </div>
+                        <div class="grid-item">
+                            <h4>3</h4>
+                            <img src="<?=base_url('assets/santini/img/icustom_03.svg')?>" alt="">
+                            <h5>FITTING &amp; SCHEDULE</h5>
+                        </div>
+                        <div class="grid-item">
+                            <h4>4</h4>
+                            <img src="<?=base_url('assets/santini/img/icustom_04.svg')?>" alt="">
+                            <h5>GIFTS &amp; DELIVERY</h5>
+                            <p>Service</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-search">
+                    <label for="">ORDER NO.</label>
+                    <input type="text" class="order-text">
+                    <input type="submit" class="icon-big" value="">
+                </div>
+            </div>
+        </section>
+        <section>
+            <a href="">
+                <img src="<?=base_url('assets/santini/img/index_shop_now.jpg')?>" alt="" class="rwd">
+            </a>
+        </section>
+        <section class="i-ig">
+            <h2>INSTAGRAM</h2>
+            <h3>@SANTINI_SUIT</h3>
+            <div class="icon-ig">
+                <a href=""><img src="<?=base_url('assets/santini/img/icon_ig.svg')?>" alt=""></a>
+            </div>
+            <div class="ig-img">
+                <a href=""><img src="<?=base_url('assets/santini/img/ig_01.jpg')?>" alt=""></a>
+                <a href=""><img src="<?=base_url('assets/santini/img/ig_02.jpg')?>" alt=""></a>
+                <a href=""><img src="<?=base_url('assets/santini/img/ig_03.jpg')?>" alt=""></a>
+                <a href=""><img src="<?=base_url('assets/santini/img/ig_04.jpg')?>" alt=""></a>
+                <a href=""><img src="<?=base_url('assets/santini/img/ig_05.jpg')?>" alt=""></a>
+            </div>
+        </section>
+        <section>
+            <div class="i-fixed">
+                <h3 class="name">THE<span>SANTINI</span></h3>
+                <div class="i-fb">
+                    <img src="<?=base_url('assets/santini/img/icon_qrcode.jpg')?>" alt="">
+                    <h3 class="fb">SUIT BAR<a href="">FACEBOOK</a></h3>
+                </div>
+            </div>
+        </section>
+        <section class="i-believe">
+            <img src="<?=base_url('assets/santini/img/icon_sewing.svg')?>" alt="">
+            <h2>Honourable<h2>
+            <h3>Gentlemen Style for Life<br></h3>
+            <p>In the ancient time, your armour it’s your society level which put on honour to you.<br>
+Nowaday, no more blood and sweat battles, but really battle for yourself to become a better style gentlemen.<br>
+We are not just delivering a message but
+to build up a culture that everyman it’s a gentleman in there look, outside and inside.br<br>Give yourself a credit on dress good, earn the honour by putting effort on it.<br>We are leading a wave for new gentlemen<br>
+We are building a culture for all gentlemen<br>
+We are a group of gentlemen never style for less.</p>
+        </section>

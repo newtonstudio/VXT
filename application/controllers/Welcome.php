@@ -53,6 +53,59 @@ class Welcome extends CI_Controller {
            
 
             $this->data['current_page'] = "index";
+
+            $custom_keys = array();
+            $custom_keys[] = array(
+            	'id' => "1",
+            	'key' => "TYPE"
+            );
+            $custom_keys[] = array(
+            	'id' => "2",
+            	'key' => "FITTING"
+            );
+            $custom_keys[] = array(
+            	'id' => "3",
+            	'key' => "JACKET LAPELS"
+            );
+            $custom_keys[] = array(
+            	'id' => "4",
+            	'key' => "VENTS"
+            );
+            $custom_keys[] = array(
+            	'id' => "5",
+            	'key' => "SUIT BUTTON"
+            );
+            $custom_keys[] = array(
+            	'id' => "6",
+            	'key' => "SUIT POCKET"
+            );
+            $custom_keys[] = array(
+            	'id' => "7",
+            	'key' => "FABRIC"
+            );
+            $custom_keys[] = array(
+            	'id' => "8",
+            	'key' => "SUIT LINING FRONT"
+            );
+            $custom_keys[] = array(
+            	'id' => "9",
+            	'key' => "SUIT LINING"
+            );
+            $custom_keys[] = array(
+            	'id' => "10",
+            	'key' => "SUIT MONOGRAM"
+            );
+            $custom_keys[] = array(
+            	'id' => "11",
+            	'key' => "MEASUREMENT"
+            );
+            $custom_keys[] = array(
+            	'id' => "12",
+            	'key' => "SHOPPING BAG"
+            );            
+
+            $this->data['custom_key'] = $custom_keys;
+
      }
 
 	public function index()
@@ -92,6 +145,22 @@ class Welcome extends CI_Controller {
         $this->load->view('frontend/footer', $this->data);
 	}
 
+	public function news()
+	{
+		
+		$article = $this->Article_model->getOne(array(
+			'article_variable' => "ABOUT",
+		));
+		
+		$this->data['content'] = nl2br($article['content_'.$this->data['init']['langu']]);
+
+		$this->data['banner'] = json_decode($article['struct_'.$this->data['init']['langu']],true);
+
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend/about", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
 	public function about()
 	{
 		
@@ -105,6 +174,151 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/about", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom()
+	{
+		
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/custom", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_01type()
+	{
+		$this->data['key_no'] = 1;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/01-type", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_02fitting()
+	{
+		$this->data['key_no'] = 2;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/02-fitting", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_03jacketlapels()
+	{
+		$this->data['key_no'] = 3;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/03-jacketlapels", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_04vents()
+	{
+		$this->data['key_no'] = 4;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/04-vents", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_05suitbutton()
+	{
+		$this->data['key_no'] = 5;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/05-suitbutton", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+	public function custom_06suitpocket()
+	{
+		$this->data['key_no'] = 6;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/06-suitpocket", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_07fabric()
+	{
+		$this->data['key_no'] = 7;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/07-fabric", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_08suitliningfront()
+	{
+		$this->data['key_no'] = 8;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/08-suitliningfront", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_09suitlining()
+	{
+		$this->data['key_no'] = 9;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/09-suitlining", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_10suitmonogram()
+	{
+		$this->data['key_no'] = 10;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/10-suitmonogram", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_11measurement()
+	{
+		$this->data['key_no'] = 11;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/11-measurement", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function custom_12shoppingbag()
+	{
+		$this->data['key_no'] = 12;
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend_custom/12-shoppingbag", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+
+	public function shop()
+	{
+		
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend/shop", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function shop_list()
+	{
+		
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend/shop_list", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function services()
+	{
+		
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend/services", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function event_list()
+	{
+		
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend/event_list", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+
+	public function event_detail($id, $slug="")
+	{
+		
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("frontend/event_detail", $this->data);
         $this->load->view('frontend/footer', $this->data);
 	}
 
@@ -169,45 +383,28 @@ class Welcome extends CI_Controller {
         
 	}
 
-	public function solutions()
-	{
-		
-		$this->data['solutions'] = $this->Solutions_model->get_where(array(
-			'is_deleted' => 0,
-		));
-
-		$this->load->view('frontend/header', $this->data);
-        $this->load->view("frontend/solutions", $this->data);
-        $this->load->view('frontend/footer', $this->data);
-	}	
-
-	public function support()
-	{
-		
-		$this->data['qa'] = $this->QA_model->get_where(array(
-			'is_deleted' => 0,
-		),'priority','ASC');
-		$this->data['drivers'] = $this->Drivers_model->get_where(array(
-			'is_deleted' => 0,
-		),'priority','ASC');
-		
-
-		$this->load->view('frontend/header', $this->data);
-        $this->load->view("frontend/support", $this->data);
-        $this->load->view('frontend/footer', $this->data);
-	}
 
 	public function contact()
 	{
-		
-		$latlng = $this->Settings_model->getOne(array(
-			'variable' => "latlng",
-		));
-
-		$this->data['latlng'] = explode(",", $latlng['value']);
 
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend/contact", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function login()
+	{
+
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("auth/login", $this->data);
+        $this->load->view('frontend/footer', $this->data);
+	}
+
+	public function register()
+	{
+
+		$this->load->view('frontend/header', $this->data);
+        $this->load->view("auth/register", $this->data);
         $this->load->view('frontend/footer', $this->data);
 	}
 

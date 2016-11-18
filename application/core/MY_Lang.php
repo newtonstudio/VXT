@@ -12,9 +12,9 @@ class MY_Lang extends CI_Lang {
 
 	// languages
 	var $languages = array(
+		'zh'    => 'zh-tw',		
 		'en' 	=> 'english',
-        'cn'    => 'zh-cn',
-        'zh'    => 'zh-tw',		
+        'cn'    => 'zh-cn',       
 	);
 
 	// special URIs (not localized)

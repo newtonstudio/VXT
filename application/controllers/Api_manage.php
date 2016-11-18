@@ -265,24 +265,29 @@ class Api_manage extends CI_Controller {
             if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
             $_POST = array_merge($_POST, (array) json_decode(trim(file_get_contents('php://input')), true));
 
-                $company = $this->input->post("company", true);
-                $name = $this->input->post("name", true);
-                $country = $this->input->post("country", true);
+                $firstname = $this->input->post("firstname", true);
+                $lastname = $this->input->post("lastname", true);
+                $subject = $this->input->post("subject", true);
                 $email = $this->input->post("email", true);
                 $message = $this->input->post("message", true);
 
-                if(empty($company)) {
-                    throw new Exception("Company name cannot be blank");
-                    
-                }
+                $telephone = $this->input->post("telephone", true);
+                $issue = $this->input->post("issue", true);
 
-                if(empty($name)) {
-                    throw new Exception("Name cannot be blank");
+               
+
+                if(empty($firstname)) {
+                    throw new Exception("First Name cannot be blank");
                     
                 }
 
                 if(empty($email)) {
                     throw new Exception("Email cannot be blank");
+                    
+                }
+
+                if(empty($subject)) {
+                    throw new Exception("Subject cannot be blank");
                     
                 }
 
@@ -292,35 +297,38 @@ class Api_manage extends CI_Controller {
                 }
 
                 $c_id = $this->Contact_model->insert(array(
-                    'company' => $company,
-                    'name' => $name,
-                    'country' => $country,
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'subject' => $subject,
                     'email' => $email,
                     'message' => $message,
+                    'telephone' => $telephone,
+                    'issue' => $issue,
                     'created_date' => date("Y-m-d H:i:s"), 
                 ));
 
                 $msg = "";
                 $msg .= "Hi, <br/><br/>";
-                $msg .= 'You have received this email because someone has submit a contact message from VXT website as below:<br/><br/>';                                                
+                $msg .= 'You have received this email because someone has submit a contact message from SANTINI website as below:<br/><br/>';                                                
                 $msg .= "<br/><br/>";
 
-                $msg .= "Company: ".$company."<br/>";
-                $msg .= "Name: ".$name."<br/>";
-                $msg .= "Country: ".$country."<br/>";
+                
+                $msg .= "Name: ".$firstname." ".$lastname."<br/>";                
                 $msg .= "Email: ".$email."<br/>";
+                $msg .= "Telephone: ".$telephone."<br/>";
                 $msg .= "Message: ".$message."<br/>";
+                $msg .= "Issue: ".$issue."<br/>";
                 $msg .= "<br/><br/>";
                 $msg .= base_url($this->data['init']['langu'].'/vo/login');
                 $msg .= "<br/><br/>";
-                $msg .= "VXT<br/>";
+                $msg .= "SANTINI<br/>";
 
 
                 $m = new SimpleEmailServiceMessage();
                 $m->addTo($this->data['init']['web_data']['web_email']);
                 $m->addBCC('jason.tian@i-tea.com.tw');
                 $m->setFrom('service@i-tea.com.tw');
-                $m->setSubject("New contact message from VXT website: ".$name);
+                $m->setSubject($subject);
                 $m->setMessageFromString('', $msg);
 
                 $ses = new SimpleEmailService('AKIAJQAJ6COMC7DR4R7A', 'OwMUINMK2IVwhkb7WbDRgb3bPhF0w2hSJ9E22y9E');

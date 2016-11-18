@@ -1,132 +1,63 @@
-<style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-      }
-    </style>
-
-<!--=== Breadcrumbs ===-->
-		<div class="breadcrumbs">
-			<div class="container">
-				<h1 class="pull-left">Our Contacts</h1>
-				<ul class="pull-right breadcrumb">
-					<li><a href="<?=base_url()?>">Home</a></li>
-					<li class="active">Contact</li>
-				</ul>
-			</div>
-		</div><!--/breadcrumbs-->
-		<!--=== End Breadcrumbs ===-->
-
-		<!-- Google Map -->
-		<div id="map" class="map" style="height:300px;"></div><!---/map-->
-		<!-- End Google Map -->
-
-		<!--=== Content Part ===-->
-		<div class="container content">
-			<div class="row margin-bottom-30">
-				<div class="col-md-9 mb-margin-bottom-30">
-					<div class="headline"><h2>Contact Form</h2></div>
-					<p>Feel free to contact us for product information or techincal support.</p>
-
-					<form method="post" id="contact-form" class="sky-form contact-style">
-						<fieldset class="no-padding">
-							<label>Company <span class="color-red">*</span></label>
-							<div class="row sky-space-20">
-								<div class="col-md-7 col-md-offset-0">
-									<div>
-										<input type="text" name="company" id="company" class="form-control">
-									</div>
-								</div>
-							</div>
-							<label>Name <span class="color-red">*</span></label>
-							<div class="row sky-space-20">
-								<div class="col-md-7 col-md-offset-0">
-									<div>
-										<input type="text" name="name" id="name" class="form-control">
-									</div>
-								</div>
-							</div>
-							<label>Country</label>
-							<div class="row sky-space-20">
-								<div class="col-md-7 col-md-offset-0">
-									<div>
-										<input type="text" name="country" id="country" class="form-control">
-									</div>
-								</div>
-							</div>
-							<label>Email <span class="color-red">*</span></label>
-							<div class="row sky-space-20">
-								<div class="col-md-7 col-md-offset-0">
-									<div>
-										<input type="email" name="email" id="email" class="form-control">
-									</div>
-								</div>
-							</div>
-							<label>Message <span class="color-red">*</span></label>
-							<div class="row sky-space-20">
-								<div class="col-md-11 col-md-offset-0">
-									<div>
-										<textarea rows="8" name="message" id="message" class="form-control"></textarea>
-									</div>
-								</div>
-							</div>
-							<p><button type="submit" class="btn-u">Send Message</button></p>
-							<div id="loading" style="display:none">Please wait...</div>
-						</fieldset>
-
-						<!-- <div class="message">
-							<i class="rounded-x fa fa-check"></i>
-							<p>Your message was successfully sent!</p>
-						</div> -->
-					</form>
-				</div><!--/col-md-9-->
-
-				<div class="col-md-3">
-					<!-- Contacts -->
-					<div class="headline"><h2>Contacts</h2></div>
-					<ul class="list-unstyled who margin-bottom-30">
-						<li><a href="#"><i class="fa fa-home"></i><?=$init['web_data']['web_address']?></a></li>
-						<li><a href="#"><i class="fa fa-phone"></i><?=$init['web_data']['web_mobile']?></a></li>
-						<li><a href="#"><i class="fa fa-fax"></i></i><?=$init['web_data']['web_mobile']?></a></li>
-						<li><a href="#"><i class="fa fa-globe"></i><?=$init['web_data']['offical_fb']?></a></li>
-					</ul>
-
-					<!-- Business Hours -->
-					<div class="headline"><h2>Business Hours</h2></div>
-					<ul class="list-unstyled margin-bottom-30">
-						<li><strong>Monday-Friday:</strong> 9:00 ~ 18:00 (GMT+8)</li>						
-					</ul>
-					
-				</div><!--/col-md-3-->
-			</div><!--/row-->
-
-			
-		</div><!--/container-->
-		<!--=== End Content Part ===-->
-
-		<script>
-
-function initMap() {
-  var myLatLng = {lat: <?=$latlng[0]?>, lng: <?=$latlng[1]?>};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'We are here'
-  });
-}
-
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1GjjhYxFHIL2uvY3FYDBNY93vawHvA1s&signed_in=true&callback=initMap"></script>
-    
-  </body>
+<section class="wrapper">
+            <div class="contact">
+                <h2>CONTACT US</h2>
+                <div class="contact-box">
+                <form method="post" id="contact-form" class="sky-form contact-style">
+                <div class="forum">
+                    <div class="row">
+                        <div class="grid grid-1-2-2">
+                            <div class="grid-item">
+                                <span>Fitst Name</span>
+                                <input type="text" name="firstname" class="text">
+                            </div>
+                            <div class="grid-item">
+                                <span>Last Name</span>
+                                <input type="text" name="lastname" class="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="grid grid-1-2-2">
+                            <div class="grid-item">
+                                <span>Email</span>
+                                <input type="text" name="email" class="text">
+                            </div>
+                            <div class="grid-item">
+                                <span>Subject</span>
+                                <input type="text" name="subject" class="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="grid grid-1-2-2">
+                            <div class="grid-item">
+                                <span>Telephone</span>
+                                <input type="text" name="telephone" class="text">
+                            </div>
+                            <div class="grid-item">
+                                <span>Issue</span>
+                                <input type="text" name="issue" class="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <span>Message</span>
+                        <textarea name="message" class="message-text"></textarea>
+                    </div>
+                    <input type="submit" name="" value="SEND" class="btn send">
+                    <div id="loading" style="display:none">Please wait...</div>
+                </div>
+                </form>
+                <div class="info">
+                    <h3>SANTINI SUIT</h3>
+                    <p>No.6-2, E. 4th St., Qianzhen Dist.,<br>Kaohsiung City 806, Taiwan (R.O.C.)<br>
+                        Tel \ +886 821 7676<br>
+                        WWW.SANTINI-SUIT.COM
+                    </p>
+                </div>
+                </div>
+                <div class="gmap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14733.68790567596!2d120.2831127962947!3d22.60071228123229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e039be628b113%3A0xf080a82bcbaed88c!2zODA26auY6ZuE5biC5YmN6Y6u5Y2A5p2x5Zub6KGXNuiZnw!5e0!3m2!1szh-TW!2stw!4v1479178649809" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>

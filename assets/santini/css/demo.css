@@ -1,0 +1,14 @@
+body{
+	background: #ffffff;
+}
+.menu
+{
+	background: center center no-repeat transparent;
+	background-image: url(../img/icon_menu.svg);
+	display: block;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 10px;
+}

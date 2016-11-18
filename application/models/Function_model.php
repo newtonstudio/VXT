@@ -13,9 +13,8 @@ class Function_model extends CI_Model{
     public function page_init()
     {   
         $langlist = array();
-        $langlist["en"] = "English";
-        $langlist["cn"] = "简体中文"; 
         $langlist["zh"] = "繁體中文"; 
+        $langlist["en"] = "English";                
 
         $lngls = array();
         foreach($langlist as $k=>$v) {
@@ -35,7 +34,7 @@ class Function_model extends CI_Model{
             'lang'              => $this->lang->language,
             'lang_js'           => json_encode($this->lang->language),
             'current_url'       => $this->get_lang_chg_url($this->lang->lang()),
-            'lang_type'         => ($this->lang->lang() == 'en')?'_en':'',
+            'lang_type'         => ($this->lang->lang() == 'zh')?'_zh':'',
             'web_data'			=> $this->get_web_setting(),    
             'langname'          => $langlist[$this->lang->lang()],
             'langlist'          => $lngls,

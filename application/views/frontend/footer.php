@@ -1,128 +1,70 @@
-<!--=== Footer v6 ===-->
-		<div id="footer-v6" class="footer-v6">
-			<div class="footer">
-				<div class="container">
-					<div class="row">
-						<!-- About Us -->
-						<div class="col-md-3 sm-margin-bottom-40">
-							<div class="heading-footer"><h2><?=$init['web_data']['findus_title']?></h2></div>
-							<p><?=$init['web_data']['findus_desc']?></p>
-						</div>
-						<!-- End About Us -->
+<footer>
+            <div class="footer">
+                <div class="f-contact">
+                    <h3>CONTACT US</h3>
+                    <ul>
+                        <li>Office Tel: +886 7 821 7676<br>Fax: +886 7</li>
+                        <li>Online Hotline :<br>Call/Text us (+886 ) 956768698</li>
+                        <li>Phone lines open Mon - Fri:<br>10am to 6pm GMT +8 </li>
+                    </ul>
+                </div>
+                <div class="f-mailto">
+                    <h3>MAIL TO</h3>
+                    <ul>
+                        <li>Business Enquiries: <span>santini.suit@gmail.com</span></li>
+                        <li>Online Orders: <span>santini.suit@gmail.com</span></li>
+                    </ul>
+                </div>
+                <div class="f-pay">
+                    <h3>PAYMENT &amp; SECURITY</h3>
+                </div>
+                <div class="f-follow">
+                    <h3>FOLLOW US /</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/santini.suit/" target="_blank">+ FACEBOOK</a></li>
+                        <li><a href="https://www.instagram.com/santini_suit/" target="_blank">+ INSTAGRAM</a></li>
+                    </ul>
+                </div>
+                <p class="copyright">
+                    <span>COPYRIGHT</span>&copy; 2016 SANTINI.SUIT CO.LTD. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+        </footer>
+            <nav id="menu">
+                <ul>
+                    <li><a href="<?=base_url($init['langu'])?>">HOME</a></li>
+                    <li><a href="<?=base_url($init['langu'])?>">NEWS</a></li>
+                    <li><a href="<?=base_url($init['langu'].'/shop')?>">SHOP</a></li>
+                    <li><a href="<?=base_url($init['langu'].'/services')?>">SERVICES</a></li>
+                    <li><a href="<?=base_url($init['langu'].'/event_list')?>">EVENT</a></li>
+                    <li><a href="<?=base_url($init['langu'].'/contact')?>">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script>
+        var langu = '<?=$init['langu']?>';
+        </script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="<?=base_url('assets/santini/js/vendor/jquery-1.12.0.min.js')?>"><\/script>')</script>
+        <script type="text/javascript" src="<?=base_url('assets/santini/js/jquery.mmenu.all.min.js')?>"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('nav#menu').mmenu();
+            });
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="<?=base_url('assets/santini/js/plugins.js')?>"></script>
+        <script src="<?=base_url('assets/santini/js/main.js')?>"></script>
 
-						<!-- Recent News -->
-						<div class="col-md-3 sm-margin-bottom-40">
-							<div class="heading-footer"><h2>OUR PRODUCTS</h2></div>
-							<ul class="list-unstyled link-news">
-								<li>
-									<a href="#">Capacitive Touch Panel</a>
-								</li>
-								<li>
-									<a href="#">Industrial LCD Panel</a>
-								</li>
-							</ul>
-						</div>
-						<!-- End Recent News -->
-
-						<!-- Useful Links -->
-						<div class="col-md-3 sm-margin-bottom-40">
-							<div class="heading-footer"><h2>Useful Links</h2></div>
-							<ul class="list-unstyled footer-link-list">
-								<li><a href="<?=base_url($init['langu'].'/about')?>">About Us</a></li>								
-								<li><a href="<?=base_url($init['langu'].'/solutions')?>">Solutions</a></li>
-								<?php
-										if(!empty($productList)) {
-											foreach($productList as $v) {
-										?>
-										<li>
-											<a href="<?=base_url($init['langu'].'/product/'.$v['product_id'].'/'.urlencode($v['title']))?>"><?=$v['title']?></a>
-										</li>
-										<?php		
-											}
-										}
-										?>
-								<li><a href="<?=base_url($init['langu'].'/support')?>">Support</a></li>
-								<li><a href="<?=base_url($init['langu'].'/contact')?>">Contact</a></li>
-							</ul>
-						</div>
-						<!-- End Useful Links -->
-
-						<!-- Contacts -->
-						<div class="col-md-3">
-							<div class="heading-footer"><h2>Contacts</h2></div>
-							<ul class="list-unstyled contacts">
-								<li>
-									<i class="radius-3x fa fa-map-marker"></i>
-									<?=$init['web_data']['web_address']?>
-
-								</li>
-								<li>
-									<i class="radius-3x fa fa-phone"></i>
-									<?=$init['web_data']['web_mobile']?>
-								</li>
-								<li>
-									<i class="radius-3x fa fa-globe"></i>
-									<a href="#"><?=$init['web_data']['offical_fb']?></a>
-								</li>
-							</ul>
-						</div>
-						<!-- End Contacts -->
-					</div>
-				</div><!--/container -->
-			</div>
-
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 sm-margon-bottom-10">
-							<ul class="list-inline terms-menu">
-								<li class="silver"><?=$init['web_data']['web_footer']?></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--=== End Footer v6 ===-->
-	</div><!--/wrapper-->
-
-	<!-- JS Global Compulsory -->
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/jquery/jquery.min.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/jquery/jquery-migrate.min.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/bootstrap/js/bootstrap.min.js')?>"></script>
-	<!-- JS Implementing Plugins -->
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/back-to-top.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/smoothScroll.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/jquery.parallax.js')?>"></script>
-	<script src="<?=base_url('assets/VXT/assets/plugins/master-slider/masterslider/masterslider.min.js')?>"></script>
-	<script src="<?=base_url('assets/VXT/assets/plugins/master-slider/masterslider/jquery.easing.min.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/counter/waypoints.min.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/counter/jquery.counterup.min.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/fancybox/source/jquery.fancybox.pack.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js')?>"></script>
-	<!-- JS Customization -->
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/js/custom.js')?>"></script>
-	<!-- JS Page Level -->
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/js/app.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/js/plugins/fancy-box.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/js/plugins/owl-carousel.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/js/plugins/master-slider-fw.js')?>"></script>
-	<script type="text/javascript" src="<?=base_url('assets/VXT/assets/js/plugins/style-switcher.js')?>"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			App.init();
-			App.initCounter();
-			App.initParallaxBg();
-			FancyBox.initFancybox();
-			MSfullWidth.initMSfullWidth();
-			OwlCarousel.initOwlCarousel();
-			StyleSwitcher.initStyleSwitcher();
-		});
-	</script>
-	<!--[if lt IE 9]>
-	<script src="assets/plugins/respond.js"></script>
-	<script src="assets/plugins/html5shiv.js"></script>
-	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
-	<![endif]-->
-</body>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
 </html>
