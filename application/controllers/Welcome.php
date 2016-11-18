@@ -270,7 +270,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('frontend/header', $this->data);
         $this->load->view("frontend_custom/11-measurement", $this->data);
         $this->load->view('frontend/footer', $this->data);
-	}
+	} 
 
 	public function custom_12shoppingbag()
 	{
