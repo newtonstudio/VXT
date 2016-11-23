@@ -23,12 +23,10 @@ date_default_timezone_set("Asia/Taipei");
 | a PHP script and you can easily do that on your own.
 |
 */
-if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=="santini.local") {
-      $config['base_url']	= 'http://santini.local/';
-} else if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=="santini-suit.com") {
-      $config['base_url']	= 'http://santini-suit.com/';
-} else if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=="www.santini-suit.com") {
-      $config['base_url']	= 'http://www.santini-suit.com/';
+if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=="vxt.local") {
+       $config['base_url']	= 'http://vxt.local/';
+} else if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=="vxt.aipi2.com") {
+       $config['base_url']	= 'http://vxt.aipi2.com/';
 } 
 
 /*
