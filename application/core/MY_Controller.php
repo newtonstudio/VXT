@@ -22,6 +22,8 @@ class MY_Controller extends CI_Controller {
             $this->load->model('User_login_token_model');
             
             $this->load->model('Products_model');
+            $this->load->model('Capacitive_detail_model');
+            $this->load->model('Industrial_detail_model');
             
 
             $this->data['init'] = $this->Function_model->page_init();
